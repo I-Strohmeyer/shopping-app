@@ -6,6 +6,7 @@ import { Sheet } from "../ui/Sheet";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { cn } from "../../lib/cn";
+import { getSuggestedSectionId } from "../../lib/itemSuggestions";
 import type { ListItem, ItemHistoryEntry } from "../../store/types";
 
 interface AddItemSheetProps {
@@ -37,11 +38,15 @@ export function AddItemSheet({
   const [showSugg, setShowSugg] = useState(false);
 
   const nameRef = useRef<HTMLInputElement>(null);
+  // Tracks whether the user (or history autocomplete) has explicitly chosen a
+  // section. When false, the section field is auto-filled from the dictionary.
+  const userPickedSection = useRef(false);
   const isEditing = editItem !== null;
 
   // Populate form when opening
   useEffect(() => {
     if (!open) return;
+    userPickedSection.current = false;
     if (editItem) {
       setName(editItem.name);
       setQuantity(editItem.quantity > 0 ? String(editItem.quantity) : "");
@@ -49,6 +54,8 @@ export function AddItemSheet({
       setSectionId(editItem.sectionId ?? "");
       setSelectedStores(editItem.storeIds);
       setNotes(editItem.notes ?? "");
+      // editing an existing item — treat its section as explicitly set
+      userPickedSection.current = true;
     } else {
       setName("");
       setQuantity("");
@@ -59,10 +66,11 @@ export function AddItemSheet({
     }
   }, [open, editItem]);
 
-  // Autocomplete
+  // Autocomplete + dictionary-based section suggestion
   useEffect(() => {
     if (name.trim().length === 0) {
       setSuggestions([]);
+      if (!userPickedSection.current) setSectionId("");
       return;
     }
     const q = name.toLowerCase();
@@ -72,7 +80,12 @@ export function AddItemSheet({
         .sort((a, b) => b.useCount - a.useCount)
         .slice(0, 6),
     );
-  }, [name, history]);
+    // Auto-fill section from dictionary when user hasn't picked one manually
+    if (!userPickedSection.current) {
+      const suggested = getSuggestedSectionId(name, sections);
+      setSectionId(suggested ?? "");
+    }
+  }, [name, history, sections]);
 
   const pickSuggestion = (h: ItemHistoryEntry) => {
     setName(h.name);
@@ -81,6 +94,8 @@ export function AddItemSheet({
     setSelectedStores(h.storeIds);
     setSuggestions([]);
     setShowSugg(false);
+    // Section came from history — treat as explicitly set
+    userPickedSection.current = true;
   };
 
   const toggleStore = (id: string) =>
@@ -182,7 +197,13 @@ export function AddItemSheet({
           <label className="block text-sm font-medium text-slate-700 mb-1">
             Section / Aisle
           </label>
-          <SelectPrimitive.Root value={sectionId} onValueChange={setSectionId}>
+          <SelectPrimitive.Root
+            value={sectionId}
+            onValueChange={(val) => {
+              setSectionId(val);
+              userPickedSection.current = true;
+            }}
+          >
             <SelectPrimitive.Trigger className="w-full flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 data-[placeholder]:text-slate-400 text-slate-900">
               <SelectPrimitive.Value placeholder="Choose section…" />
               <SelectPrimitive.Icon>
