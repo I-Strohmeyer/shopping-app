@@ -15,7 +15,7 @@ export default function HomePage() {
     <div>
       <Header title="My Lists" />
 
-      <div className="p-4">
+      <div className="p-4 max-w-4xl">
         {activeLists.length === 0 ? (
           <EmptyState />
         ) : (

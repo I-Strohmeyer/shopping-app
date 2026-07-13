@@ -36,7 +36,7 @@ export function Nav({ onNewList }: NavProps) {
 
         <button
           onClick={onNewList}
-          className="flex items-center justify-center w-12 h-12 bg-emerald-500 text-white rounded-2xl shadow-lg shadow-emerald-200/60 hover:bg-emerald-600 active:bg-emerald-700 transition-colors -mt-4"
+          className="flex items-center justify-center w-12 h-12 bg-emerald-500 text-white rounded-2xl shadow-lg shadow-emerald-200/60 hover:bg-emerald-600 active:bg-emerald-700 transition-colors"
           aria-label="New list"
         >
           <Plus size={22} strokeWidth={2.5} />
