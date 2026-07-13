@@ -22,7 +22,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
   };
 
   return (
-    <div className="min-h-dvh bg-slate-50">
+    <div className="min-h-dvh bg-slate-100">
       <Nav onNewList={() => setShowCreate(true)} />
 
       {/* Content: padded for bottom nav (mobile) or left sidebar (desktop) */}

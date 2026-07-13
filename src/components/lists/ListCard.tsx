@@ -55,7 +55,7 @@ export function ListCard({ list, archived = false }: ListCardProps) {
         tabIndex={0}
         onClick={() => navigate(`/list/${list.id}`)}
         onKeyDown={(e) => e.key === "Enter" && navigate(`/list/${list.id}`)}
-        className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4 cursor-pointer hover:border-emerald-200 hover:shadow-md transition-all group outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+        className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 cursor-pointer hover:border-emerald-300 hover:shadow-md transition-all group outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
       >
         {/* Title row */}
         <div className="flex items-start gap-2 mb-3">
@@ -63,7 +63,7 @@ export function ListCard({ list, archived = false }: ListCardProps) {
             <h3 className="font-semibold text-slate-900 truncate">
               {list.name}
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-500 mt-0.5">
               {totalCount === 0
                 ? "Empty"
                 : `${checkedCount} / ${totalCount} items`}
@@ -76,7 +76,7 @@ export function ListCard({ list, archived = false }: ListCardProps) {
             <DropdownMenu.Trigger asChild>
               <button
                 onClick={(e) => e.stopPropagation()}
-                className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-400 opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
+                className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-500 opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
                 aria-label="List options"
               >
                 <MoreVertical size={16} />
@@ -84,7 +84,7 @@ export function ListCard({ list, archived = false }: ListCardProps) {
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
               <DropdownMenu.Content
-                className="z-50 min-w-[160px] bg-white rounded-xl shadow-lg border border-slate-100 py-1"
+                className="z-50 min-w-[160px] bg-white rounded-xl shadow-lg border border-slate-200 py-1"
                 align="end"
                 onClick={(e) => e.stopPropagation()}
               >
@@ -128,9 +128,9 @@ export function ListCard({ list, archived = false }: ListCardProps) {
 
         {/* Progress bar */}
         {totalCount > 0 && (
-          <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden mb-3">
+          <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden mb-3">
             <div
-              className="h-full bg-emerald-400 rounded-full transition-all duration-300"
+              className="h-full bg-emerald-500 rounded-full transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -149,7 +149,7 @@ export function ListCard({ list, archived = false }: ListCardProps) {
               </span>
             ))}
             {listStoreIds.length > 3 && (
-              <span className="text-[10px] text-slate-400">
+              <span className="text-[10px] text-slate-500">
                 +{listStoreIds.length - 3}
               </span>
             )}

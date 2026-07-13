@@ -121,7 +121,7 @@ export default function ListDetailPage() {
 
       {/* Store filter chips */}
       {availableStores.length > 0 && (
-        <div className="px-4 py-3 flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-100 bg-white">
+        <div className="px-4 py-3 flex gap-2 overflow-x-auto no-scrollbar border-b border-slate-200 bg-white">
           <button
             onClick={() => setActiveStore(null)}
             className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
@@ -156,7 +156,7 @@ export default function ListDetailPage() {
       <div className="p-4 space-y-6 max-w-3xl">
         {/* Empty state */}
         {groupedItems.length === 0 && checkedItems.length === 0 && (
-          <p className="text-center text-slate-400 text-sm py-16">
+          <p className="text-center text-slate-500 text-sm py-16">
             {activeStore
               ? "No items for this store"
               : "No items yet — tap + to add some"}
@@ -166,9 +166,9 @@ export default function ListDetailPage() {
         {/* Grouped unchecked items */}
         {groupedItems.map((group) => (
           <div key={group.sectionId ?? "__other"}>
-            <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 px-1">
+            <h3 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2 px-1">
               {group.name}
-              <span className="ml-1.5 font-normal normal-case text-slate-300">
+              <span className="ml-1.5 font-normal normal-case text-slate-400">
                 ({group.items.length})
               </span>
             </h3>
@@ -191,7 +191,7 @@ export default function ListDetailPage() {
             <div className="flex items-center gap-2 mb-2 px-1">
               <button
                 onClick={() => setCheckedOpen((v) => !v)}
-                className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wider hover:text-slate-600 transition-colors"
+                className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 uppercase tracking-wider hover:text-slate-700 transition-colors"
               >
                 {checkedOpen ? (
                   <ChevronUp size={13} />

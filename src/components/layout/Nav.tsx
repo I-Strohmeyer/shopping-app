@@ -18,7 +18,7 @@ export function Nav({ onNewList }: NavProps) {
     <>
       {/* ── Mobile: fixed bottom bar ── */}
       <nav
-        className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-sm border-t border-slate-200 flex items-center justify-around h-16 md:hidden"
+        className="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-sm border-t border-slate-300 flex items-center justify-around h-16 md:hidden"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
         <Link
@@ -27,7 +27,7 @@ export function Nav({ onNewList }: NavProps) {
             "flex flex-col items-center gap-0.5 px-5 py-1.5 rounded-xl transition-colors",
             pathname === "/"
               ? "text-emerald-600"
-              : "text-slate-400 hover:text-slate-600",
+              : "text-slate-500 hover:text-slate-700",
           )}
         >
           <ShoppingCart size={22} />
@@ -48,7 +48,7 @@ export function Nav({ onNewList }: NavProps) {
             "flex flex-col items-center gap-0.5 px-5 py-1.5 rounded-xl transition-colors",
             pathname === "/settings"
               ? "text-emerald-600"
-              : "text-slate-400 hover:text-slate-600",
+              : "text-slate-500 hover:text-slate-700",
           )}
         >
           <Settings size={22} />
@@ -57,8 +57,8 @@ export function Nav({ onNewList }: NavProps) {
       </nav>
 
       {/* ── Desktop: fixed left sidebar ── */}
-      <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-56 bg-white border-r border-slate-200 flex-col z-40">
-        <div className="px-5 py-5 border-b border-slate-100">
+      <nav className="hidden md:flex fixed left-0 top-0 bottom-0 w-56 bg-white border-r border-slate-300 flex-col z-40">
+        <div className="px-5 py-5 border-b border-slate-200">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-emerald-500 rounded-xl flex items-center justify-center">
               <ShoppingCart size={16} className="text-white" />
@@ -75,7 +75,7 @@ export function Nav({ onNewList }: NavProps) {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors",
                 pathname === to
-                  ? "bg-emerald-50 text-emerald-700"
+                  ? "bg-emerald-100 text-emerald-700"
                   : "text-slate-600 hover:bg-slate-100",
               )}
             >

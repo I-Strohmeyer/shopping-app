@@ -24,8 +24,8 @@ export function ItemRow({ item, listId, onEdit }: ItemRowProps) {
   return (
     <div
       className={cn(
-        "flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100 group",
-        "hover:border-slate-200 transition-colors",
+        "flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200 group",
+        "hover:border-slate-300 transition-colors",
       )}
     >
       {/* Checkbox */}
@@ -58,7 +58,7 @@ export function ItemRow({ item, listId, onEdit }: ItemRowProps) {
             {item.name}
           </span>
           {qtyLabel && (
-            <span className="text-xs text-slate-400 shrink-0">{qtyLabel}</span>
+            <span className="text-xs text-slate-500 shrink-0">{qtyLabel}</span>
           )}
         </div>
 
@@ -75,7 +75,7 @@ export function ItemRow({ item, listId, onEdit }: ItemRowProps) {
         </div>
 
         {item.notes && (
-          <p className="text-xs text-slate-400 mt-0.5 truncate">{item.notes}</p>
+          <p className="text-xs text-slate-500 mt-0.5 truncate">{item.notes}</p>
         )}
       </div>
 
@@ -83,7 +83,7 @@ export function ItemRow({ item, listId, onEdit }: ItemRowProps) {
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button
-            className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-400 opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
+            className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-500 opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
             aria-label="Item options"
           >
             <MoreVertical size={14} />
@@ -91,7 +91,7 @@ export function ItemRow({ item, listId, onEdit }: ItemRowProps) {
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
           <DropdownMenu.Content
-            className="z-50 min-w-[140px] bg-white rounded-xl shadow-lg border border-slate-100 py-1"
+            className="z-50 min-w-[140px] bg-white rounded-xl shadow-lg border border-slate-200 py-1"
             align="end"
           >
             <DropdownMenu.Item

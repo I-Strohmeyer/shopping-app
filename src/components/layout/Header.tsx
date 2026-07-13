@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export function Header({ title, onBack, right }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-sm border-b border-slate-100">
+    <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-slate-200">
       <div className="flex items-center gap-2 px-4 h-14 max-w-3xl">
         {onBack && (
           <button

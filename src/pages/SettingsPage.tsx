@@ -86,7 +86,7 @@ export default function SettingsPage() {
         {/* ── Stores ── */}
         <section>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
               Stores
             </h2>
             <Button size="sm" variant="secondary" onClick={openAddStore}>
@@ -97,7 +97,7 @@ export default function SettingsPage() {
             {stores.map((store) => (
               <div
                 key={store.id}
-                className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100"
+                className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200"
               >
                 <div
                   className="w-4 h-4 rounded-full shrink-0"
@@ -108,14 +108,14 @@ export default function SettingsPage() {
                 </span>
                 <button
                   onClick={() => openEditStore(store)}
-                  className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-400"
+                  className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-500"
                   aria-label="Edit store"
                 >
                   <Pencil size={14} />
                 </button>
                 <button
                   onClick={() => deleteStore(store.id)}
-                  className="p-1.5 rounded-lg hover:bg-red-50 transition-colors text-slate-400 hover:text-red-500"
+                  className="p-1.5 rounded-lg hover:bg-red-50 transition-colors text-slate-500 hover:text-red-500"
                   aria-label="Delete store"
                 >
                   <Trash2 size={14} />
@@ -123,7 +123,7 @@ export default function SettingsPage() {
               </div>
             ))}
             {stores.length === 0 && (
-              <p className="text-sm text-slate-400 py-4 text-center">
+              <p className="text-sm text-slate-500 py-4 text-center">
                 No stores yet
               </p>
             )}
@@ -133,7 +133,7 @@ export default function SettingsPage() {
         {/* ── Sections ── */}
         <section>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <h2 className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
               Sections / Aisles
             </h2>
             <Button size="sm" variant="secondary" onClick={openAddSection}>
@@ -144,9 +144,9 @@ export default function SettingsPage() {
             {sortedSections.map((sec) => (
               <div
                 key={sec.id}
-                className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100"
+                className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200"
               >
-                <span className="w-6 text-xs text-slate-400 text-center font-mono shrink-0">
+                <span className="w-6 text-xs text-slate-500 text-center font-mono shrink-0">
                   {sec.order}
                 </span>
                 <span className="flex-1 text-sm font-medium text-slate-900">
@@ -154,14 +154,14 @@ export default function SettingsPage() {
                 </span>
                 <button
                   onClick={() => openEditSection(sec)}
-                  className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-400"
+                  className="p-1.5 rounded-lg hover:bg-slate-100 transition-colors text-slate-500"
                   aria-label="Edit section"
                 >
                   <Pencil size={14} />
                 </button>
                 <button
                   onClick={() => deleteSection(sec.id)}
-                  className="p-1.5 rounded-lg hover:bg-red-50 transition-colors text-slate-400 hover:text-red-500"
+                  className="p-1.5 rounded-lg hover:bg-red-50 transition-colors text-slate-500 hover:text-red-500"
                   aria-label="Delete section"
                 >
                   <Trash2 size={14} />
@@ -169,12 +169,12 @@ export default function SettingsPage() {
               </div>
             ))}
             {sections.length === 0 && (
-              <p className="text-sm text-slate-400 py-4 text-center">
+              <p className="text-sm text-slate-500 py-4 text-center">
                 No sections yet
               </p>
             )}
           </div>
-          <p className="text-xs text-slate-400 mt-2 px-1">
+          <p className="text-xs text-slate-500 mt-2 px-1">
             Lower order number = appears earlier when shopping.
           </p>
         </section>
